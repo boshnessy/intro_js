@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
-<style>
-</style>
 <head>
   <title>JavaScript Example</title>
 </head>
+<style>
+  .red {
+    color: red;
+  }
+
+  .padded {
+    padding-left: 100px;
+  }
+</style>
 <body onmouseover="printCoordinates()">
   <h1>Alexander Hamilton</h1>
   <p onclick="doSomethingElse()">Alexander Hamilton (January 11, 1755 or 1757 – July 12, 1804) was an American statesman and one of the Founding Fathers of the United States. He was an influential interpreter and promoter of the U.S. Constitution, as well as the founder of the nation's financial system, the Federalist Party, the United States Coast Guard, and The New York Post newspaper.</p>
   <p id="coordinates">Here is where the coordinates will go.</p>
+
   <button onclick="turnHeaderRed()">Turn it red</button>
   <button onclick="changePadding()">Change padding</button>
+  <button onclick="setRandomColor()">Random color</button>
+
   <script>
     function doSomething() {
       console.log("You clicked on the header!");
@@ -33,12 +43,25 @@
     function turnHeaderRed() {
       var header = document.querySelector('h1');
       header.style.color = 'red';
+      // header.classList.toggle('red');
     }
 
     function changePadding() {
       var header = document.querySelector('h1');
-      header.style.padding = "100px";
+      // header.style.padding = "100px";
+      header.classList.toggle('padded');
     }
+
+    function setRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      var header = document.querySelector('h1');
+      header.style.color = color;
+    }
+
   </script>
 </body>
 </html>
