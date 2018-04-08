@@ -39,18 +39,18 @@
 # # Write a method that accepts an array of strings and returns a new array that has the string "awesomesauce" inserted between every string. 
 # # For example, if the initial array is ["a", "b", "c", "d", "e"], then the returned array should be ["a", "awesomesauce", "b", "awesomesauce", "c", "awesomesauce", "d", "awesomesauce", "e"].
 
-# # def awesomesaucify(input_array)
-# #   new_array = []
-# #   input_array.each do |string, index|
-# #     new_array << string
-# #     if index < 4
-# #       new_array << "awesomesauce"
-# #     end
-# #   end
-# #   new_array
-# # end
+# def awesomesaucify(input_array)
+#   new_array = []
+#   input_array.each_with_index do |string, index|
+#     new_array << string
+#     if index < input_array.length - 1
+#       new_array << "awesomesauce"
+#     end
+#   end
+#   new_array
+# end
 
-# # p awesomesaucify(["a", "b", "c", "d", "e"])
+# p awesomesaucify(["a", "b", "c", "d", "e"])
 
 
 # # Start with the hash: item_amounts = {chair: 5, table: 2}
