@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example</title>
+</head>
+
+<style>
+  .complete {
+    text-decoration: line-through;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+
+<body>
+  <p onclick="makeTaskComplete(this)">Pay bills</p>
+  <p onclick="makeTaskComplete(this)">Wash car</p>
+  <p onclick="makeTaskComplete(this)">Get laundry</p>
+
+  <button onclick="hideCompletedTasks()">Hide completed tasks</button>
+</body>
+
+<script>
+  function makeTaskComplete(theParagraph) {
+    console.log("complete the task");
+    theParagraph.classList.toggle('complete');
+  }
+
+  function hideCompletedTasks() {
+    console.log("hide the tasks");
+    var paragraphs = document.querySelectorAll('p');
+    for (var i = 0; i < paragraphs.length; i++) {
+      if (paragraphs[i].complete) {
+        paragraphs[i].display.add('none')
+      }
+    }
+  }
+</script>
+</html>
