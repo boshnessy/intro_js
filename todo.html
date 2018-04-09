@@ -15,26 +15,39 @@
 </style>
 
 <body>
+  <p id="counter">0</p>
   <p onclick="makeTaskComplete(this)">Pay bills</p>
   <p onclick="makeTaskComplete(this)">Wash car</p>
   <p onclick="makeTaskComplete(this)">Get laundry</p>
 
   <button onclick="hideCompletedTasks()">Hide completed tasks</button>
+  <button onclick="showHiddenTasks()">Show all tasks</button>
 </body>
 
 <script>
   function makeTaskComplete(theParagraph) {
     console.log("complete the task");
     theParagraph.classList.toggle('complete');
+    // update the counter
+    // select the counter
+    var numberofCompletedTasks = document.querySelector('#counter');
+    // how many completed tasks are there
+    var completedTasks = document.querySelectorAll('.complete');
+    // update the contents of the counter
+    numberofCompletedTasks.innerText = completedTasks.length;
   }
 
   function hideCompletedTasks() {
-    console.log("hide the tasks");
-    var paragraphs = document.querySelectorAll('p');
-    for (var i = 0; i < paragraphs.length; i++) {
-      if (paragraphs[i].complete) {
-        paragraphs[i].display.add('none')
-      }
+    var completedTasks = document.querySelectorAll('.complete');
+    for (var i = 0; i < completedTasks.length; i++) {
+      completedTasks[i].classList.add('hidden');
+    }
+  }
+
+  function showHiddenTasks() {
+    var hiddenTasks = document.querySelectorAll('.hidden');
+    for (var i = 0; i < hiddenTasks.length; i++) {
+      hiddenTasks[i].classList.remove('hidden');
     }
   }
 </script>
